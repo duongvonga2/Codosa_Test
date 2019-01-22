@@ -21,7 +21,10 @@
 	if($accessToken->isLongLived()){
 		$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
 	}
-	$response = $fb->get('/me?fields=id,name,email',$accessToken);
-	$userData = $response->getGraphNode()->asArray();
-	var_dump($userData);
+	$response = $fb->get('/me?fields=id,name,email',$accessToken);  // get data with url
+	$userData = $response->getGraphNode()->asArray(); // get data of user as an array
+	$_SESSION['userData'] = $userData;
+	$_SESSION['accessToken'] = $accessToken;
+	header('Location: index.php');
+	exit();
 ?>

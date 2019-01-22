@@ -1,133 +1,28 @@
 <?php
+    session_start();
 
-
- require 'config.php';
- require 'storeData.php';
-
-
- $user = $facebook->getUser();
-
-
+    if(!isset($_SESSION['accessToken'])){
+        header('Location: login.php');
+        exit();
+    }
 ?>
-
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Login With Facebook</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 
+    <?php echo $_SESSION['userData']['id'] ?>
+    <?php echo $_SESSION['userData']['name']?>
+    <?php echo $_SESSION['userData']['email']?>
 
-<div class="container" style="margin-top:20px;">
-	<h2 class="text-center" >ItSolutionStuff.com</h2>
-
-
-	<?php if($user){ ?>
-
-
-		<?php
-			$userProfile = $facebook->api('/me?fields=id,first_name,last_name,email,gender,locale,picture');
-
-
-			$userClass = new User;
-			$userData = $userClass->checkFBUserData($userProfile);
-		?>
-
-
-		<?php if(!empty($userData)){ ?>
-		        <h3>Facebook User Details</h3>
-			<img src="<?php echo $userData['picture']; ?>">
-	      	        <p><strong>Fabebook ID:</strong> <?php echo $userData['facebook_id'] ?> </p>
-	      	        <p><strong>First Name:</strong> <?php echo $userData['first_name'] ?> </p>
-                        <p><strong>Last Name:</strong> <?php echo $userData['last_name'] ?> </p>
-	      	        <p><strong>Email:</strong> <?php echo $userData['email'] ?> </p>
-	      	        <p><strong>Gender:</strong> <?php echo $userData['gender'] ?> </p>
-	      	        <a href="logout.php?logout">Facebook Logout</a>
-      	       <?php }else{ ?>
-      		 <p>Something is wrong.</p>
-      	       <?php } ?>
-
-
-	<?php }else{ ?>
-
-
-		<?php
-			$loginUrl = $facebook->getLoginUrl(['scope'=>'email']);
-		?>
-
-
-		<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-                  <div class="panel panel-info" >
-                    <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
-                    </div>     
-
-
-                    <div style="padding-top:30px" class="panel-body" >
-
-
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-                            
-                        <form id="loginform" class="form-horizontal" role="form">
-
- 
-
-                                    
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">                                        
-                            </div>
-
-                                
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                            </div>
-
-                                
-                            <div class="input-group">
-                              <div class="checkbox">
-                                <label>
-                                  <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                </label>
-                              </div>
-                            </div>
-
-
-                            <div style="margin-top:10px" class="form-group">
-                                <div class="col-sm-12 controls">
-                                  <a id="btn-login" href="#" class="btn btn-success">Login  </a>
-                                  <a id="btn-fblogin" href="<?php echo $loginUrl; ?>" class="btn btn-primary">Login with Facebook</a>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-md-12 control">
-                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                        Don't have an account! 
-                                    <a href="#">Sign Up Here</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            </form>
-
-
-                        </div>                     
-                    </div>  
-        </div>
-
-
-	<?php } ?>
-
-
-</div>
-
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>

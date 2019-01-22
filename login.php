@@ -4,6 +4,11 @@
     $permission = ['email'];
     $loginURL = $helper->getLoginUrl($redirectURL, $permission); // get url to login facebook
 
+    if(isset($_SESSION['accessToken'])){
+        header('Location: index.php');
+        exit();
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
