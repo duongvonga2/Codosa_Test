@@ -1,28 +1,27 @@
 <?php
-    session_start();
-
-    if(!isset($_SESSION['accessToken'])){
-        header('Location: login.php');
-        exit();
-    }
+    include_once 'views/layouts/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-</head>
-<body>
 
-    <?php echo $_SESSION['userData']['id'] ?>
-    <?php echo $_SESSION['userData']['name']?>
-    <?php echo $_SESSION['userData']['email']?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 text-center mt-5 p-5 ">
+                <a class="action-part btn-outline-primary col-md-12" href="">
+                    <div class="">
+                        <img src="public/images/man-user.png">
+                    </div>
+                    
+                </a>
+                <p>UPDATE YOUR INFORMATION</p>
+            </div>
+            <div class="col-md-6 mt-5 p-5 text-center">
+                <a class="action-part  btn-outline-primary" href="">
+                    <img src="public/images/upload.png">
+                </a>
+                <p>UPLOAD SUBJECT</p>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-</body>
-</html>
+<?php
+    include_once 'views/layouts/footer.php';
+?>

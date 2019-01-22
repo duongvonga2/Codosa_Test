@@ -1,5 +1,5 @@
 <?php
-	require_once 'config.php';
+	require_once '../config.php';
 
 	try{
 		$accessToken = $helper->getAccessToken();
@@ -13,7 +13,7 @@
 	}
 
 	if(!$accessToken){
-		header('Location: login.php');
+		header('Location: /Codosa_Test/views/login.php');
 		exit();
 	}
 
@@ -21,10 +21,10 @@
 	if($accessToken->isLongLived()){
 		$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
 	}
-	$response = $fb->get('/me?fields=id,name,email',$accessToken);  // get data with url
+	$response = $fb->get('/me?fields=id, first_name, last_name, email, picture.type(large)',$accessToken);  // get data with url
 	$userData = $response->getGraphNode()->asArray(); // get data of user as an array
 	$_SESSION['userData'] = $userData;
 	$_SESSION['accessToken'] = $accessToken;
-	header('Location: index.php');
+	header('Location: /Codosa_Test/index.php');
 	exit();
 ?>

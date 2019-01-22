@@ -1,0 +1,19 @@
+div	{
+	display: block;
+}
+.nav-item{
+	display: block;
+}
+img	{
+	vertical-align: middle;
+	border-style: none;
+}
+a{
+	text-decoration-line: none !important;
+}
+.action-part{
+	padding: 1rem;
+	background-color: #eee;
+	display: flex;
+	justify-content: center;
+}
