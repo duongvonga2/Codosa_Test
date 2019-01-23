@@ -13,10 +13,18 @@
 
 			
 		</div>
-		<form action="/Codosa_Test/controllers/uploadImageController.php" method="POST">
+		<form action="/Codosa_Test/controllers/uploadImageController.php" method="POST" enctype="multipart/form-data"> 
 		  	<div class="form-group text-center">
-			    <label class="btn btn-primary" for="upload-img">upload personal card</label>
-			    <input type="file" id="upload-img" name="img">
+			    <label class="btn btn-primary" for="front-id-card">upload front Id card</label>
+			    <input type="file" id="front-id-card" name="front-id-card">
+		  	</div>
+		  	<div class="form-group text-center">
+			    <label class="btn btn-primary" for="backsite-id-card">upload backsite Id card</label>
+			    <input type="file" id="backsite-id-card" name="backsite-id-card">
+		  	</div>
+		  	<div class="form-group text-center">
+			    <label class="btn btn-primary" for="selfie-img">upload selfie image</label>
+			    <input type="file" id="selfie-img" name="selfie-img">
 		  	</div>
 		  	<input type="submit" name="submit" value="submit">
 		</form>

@@ -5,7 +5,8 @@
 	define('DB_PASSWORD', '123');
 	define('DB_NAME', 'codosa_test');
 
-
+	define('FILE_MAX_SIZE', 5000000);
+	
 
 
 	session_start();
