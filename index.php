@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 text-center mt-5 p-5 ">
-                <a class="action-part btn-outline-primary col-md-12" href="">
+                <a class="action-part btn-outline-primary col-md-12" href="views/user_info.php">
                     <div class="">
                         <img src="public/images/man-user.png">
                     </div>

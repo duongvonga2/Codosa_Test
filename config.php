@@ -1,4 +1,13 @@
 <?php
+	
+	define('HOST_NAME', 'localhost');
+	define('DB_USER', 'root');
+	define('DB_PASSWORD', '123');
+	define('DB_NAME', 'codosa_test');
+
+
+
+
 	session_start();
 	require_once "Facebook/autoload.php";
 	$fb = new \Facebook\Facebook([
@@ -8,4 +17,7 @@
 	]);
 
 	$helper = $fb->getRedirectLoginHelper();
+
+
+
 ?>

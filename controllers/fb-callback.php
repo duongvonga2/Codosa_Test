@@ -1,5 +1,6 @@
 <?php
-	require_once '../config.php';
+	require_once 'controller.php';
+	
 
 	try{
 		$accessToken = $helper->getAccessToken();
@@ -25,6 +26,22 @@
 	$userData = $response->getGraphNode()->asArray(); // get data of user as an array
 	$_SESSION['userData'] = $userData;
 	$_SESSION['accessToken'] = $accessToken;
+
+
+
+
+
+	// check if user is available, then not update users info to database
+	$check=0;
+	
+	$check = isAppear('users', 'facebook_id = ' . $_SESSION['userData']['id']); //check users is appear or not;
+	if(!$check){
+		$db=new Database;
+		$query="INSERT INTO users (`facebook_id`, `first_name`, `last_name`, `email`, `avatar`) VALUES (" . $_SESSION['userData']['id'] . ",'" . $_SESSION['userData']['first_name'] . "','" . $_SESSION['userData']['last_name'] . "','" . $_SESSION['userData']['email'] . "','" . $_SESSION['userData']['picture']['url'] . "')";
+		$db->updateData($query);
+		$db->disconnectDB();
+	}
+
 	header('Location: /Codosa_Test/index.php');
 	exit();
 ?>
