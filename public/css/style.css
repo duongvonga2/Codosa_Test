@@ -28,6 +28,15 @@ a{
 	/*position: absolute;
 	z-index: -1;*/
 }
+.non-display{
+	display: none;
+}
+.align-end{
+	text-align: end !important;
+}
+.align-start{
+	text-align: start !important;
+}
 label{
 	cursor: pointer;
 }

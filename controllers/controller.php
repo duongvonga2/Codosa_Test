@@ -2,7 +2,7 @@
 	require_once '../config.php';
 	require_once '../models/dbModel.php';
 	
-	$allowType =  array('jpg','png', 'jpeg', 'gif');
+	
 	// check data is appear in DB or not, if yes return true, else return false
 	function isAppear($table_name, $condition){
 		$db = new Database;
@@ -41,11 +41,20 @@
 	}
 
 	function isRightType($type_file){
-		if(in_array($type_file, $allowType)){
+
+		if(in_array($type_file, ARRAY_IMAGE_TYPE)){
 			return true;
 		}
 		else return false;
 	}
+
+	function dbGetRowsWithCondition($tb_name, $condition){
+		$db = new Database();
+		$result = $db->getRowsWithCondition($tb_name,$condition);
+		$db->disconnectDB();
+		return $result;
+	}
+
 
 ?>
 

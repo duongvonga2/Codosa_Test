@@ -14,7 +14,7 @@
 			if(mysqli_connect_errno($this->_connection)){
 				die('Connect to database fail' . mysqli_connect_error());
 			}
-			else echo 'connect to database success';
+			// else echo 'connect to database success';
 		}	
 
 		function getAllRows($table_name){
@@ -24,7 +24,7 @@
 				die('get data from $table_name faile ' . mysqli_error($this->_connection));
 			}
 			else {
-				echo 'select success';
+				// echo 'select success';
 				return $result;
 			}
 		}
@@ -45,7 +45,7 @@
 
 		function getRowsWithCondition($table_name,$condition){
 			$query = "SELECT * FROM $table_name WHERE $condition";
-			echo "\n $query";
+			// echo "\n $query";
 			$result = mysqli_query($this->_connection, $query);
 			if($this->_connection->error){
 				die( 'get data from $table_name where $condition faile' . mysqli_error($this->_connection));

@@ -6,7 +6,7 @@
 	define('DB_NAME', 'codosa_test');
 
 	define('FILE_MAX_SIZE', 5000000);
-	
+	define('ARRAY_IMAGE_TYPE', array('png','jpg','jpeg','gif'));
 
 
 	session_start();
