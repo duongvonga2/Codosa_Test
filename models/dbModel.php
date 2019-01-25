@@ -1,5 +1,5 @@
 <?php 
-	require_once '../config.php';
+	// require_once '../config.php';
 	// echo DB_USER;
 
 	class Database{
@@ -18,8 +18,8 @@
 		}	
 
 		function getAllRows($table_name){
-			$querry="SELECT * FROM $table_name";
-			$result = mysqli_query($this->_connection,$qerry);
+			$query="SELECT * FROM $table_name";
+			$result = mysqli_query($this->_connection,$query);
 			if($this->_connection->error){
 				die('get data from $table_name faile ' . mysqli_error($this->_connection));
 			}
@@ -40,8 +40,7 @@
 			        // echo nl2br($e->getTraceAsString());
 			    }
 			}
-			else echo 'udpate success';
-		}
+			else return 1;		}
 
 		function getRowsWithCondition($table_name,$condition){
 			$query = "SELECT * FROM $table_name WHERE $condition";

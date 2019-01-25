@@ -1,4 +1,6 @@
 <?php 
+require_once '../config.php';
+require_once '../models/dbModel.php';
 require_once 'controller.php';
 
 $target_dir = "uploads/";
@@ -26,9 +28,9 @@ if(isset($_POST["submit"])) {
         		move_uploaded_file($_FILES["selfie-img"]["tmp_name"], $target_selfie_img);
 
 
-        		$db = new Database();
+        		
         		$query = "UPDATE users SET front_id_card = '$target_front_id_card', backside_id_card = '$target_backsite_id_card', selfie = '$target_selfie_img' WHERE facebook_id = " . $_SESSION['userData']['id'];
-        		$db->updateData($query);
+        		updateData($query);
         		// echo $query;
         	}
         }

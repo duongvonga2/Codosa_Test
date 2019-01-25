@@ -1,4 +1,6 @@
 <?php
+	require_once '../config.php';
+	require_once '../models/dbModel.php';
 	require_once 'controller.php';
 	
 
@@ -36,10 +38,9 @@
 	
 	$check = isAppear('users', 'facebook_id = ' . $_SESSION['userData']['id']); //check users is appear or not;
 	if(!$check){
-		$db=new Database;
+		
 		$query="INSERT INTO users (`facebook_id`, `first_name`, `last_name`, `email`, `avatar`) VALUES (" . $_SESSION['userData']['id'] . ",'" . $_SESSION['userData']['first_name'] . "','" . $_SESSION['userData']['last_name'] . "','" . $_SESSION['userData']['email'] . "','" . $_SESSION['userData']['picture']['url'] . "')";
-		$db->updateData($query);
-		$db->disconnectDB();
+		updateData($query);
 	}
 
 	header('Location: /Codosa_Test/index.php');

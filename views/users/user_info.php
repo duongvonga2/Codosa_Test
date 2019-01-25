@@ -1,6 +1,9 @@
 <?php 
-	include_once 'layouts/header.php';
-	include_once '../controllers/controller.php';
+	include_once '../../config.php';
+	include_once '../../models/dbModel.php';
+	include_once '../../controllers/controller.php';
+	include_once '../layouts/header.php';
+	
 	$result=dbGetRowsWithCondition('users', 'facebook_id='.$_SESSION['userData']['id'] );
 	$data=$result->fetch_assoc();
 ?>
@@ -20,29 +23,31 @@
 		  	<div class=" row form-group">
 		  		<div class="col-md-6 align-end">
 		  			<label class="btn btn-primary" for="front-id-card">upload front Id card</label>
-			    	<input type="file" class="non-display" id="front-id-card" name="front-id-card">
+			    	<input type="file" onchange="readURL(this,'#front');" class="non-display" id="front-id-card"  name="front-id-card">
 			    </div>
 			    <div class="col-md-6 align-start">
-			    	<img width="100" src="../controllers/<?php echo $data['front_id_card'] ?>">
+			    	<!-- <img  src="#" alt="your image" /> -->
+			    	<img width="100" id="front" src="../../controllers/<?php echo $data['front_id_card'] ?>">
 			    </div>
 			    
 		  	</div>
 		  	<div class="row form-group">
 			    <div class="col-md-6 align-end">
 			    	<label class="btn btn-primary" for="backsite-id-card">upload backsite Id card</label>
-			    	<input type="file" class="non-display" id="backsite-id-card" name="backsite-id-card">
+			    	<input type="file" onchange="readURL(this,'#backside');" class="non-display" id="backsite-id-card" name="backsite-id-card">
 				</div>
 				<div class="col-md-6 align-start">
-			    	<img width="100" src="../controllers/<?php echo $data['front_id_card'] ?>">
+					<!-- <img  src="#" alt="your image" /> -->
+			    	<img width="100" id="backside" src="../../controllers/<?php echo $data['backside_id_card'] ?>">
 			    </div>
 		  	</div>
 		  	<div class="row form-group">
 		  		<div class="col-md-6 align-end">
 			    	<label class="btn btn-primary" for="selfie-img">upload selfie image</label>
-			    	<input type="file" class="non-display" id="selfie-img" name="selfie-img">
+			    	<input type="file" onchange="readURL(this,'#selfie');" class="non-display" id="selfie-img" name="selfie-img">
 				</div>
 				<div class="col-md-6 align-start">
-			    	<img width="100" src="../controllers/<?php echo $data['front_id_card'] ?>">
+			    	<img id="selfie" width="100" src="../../controllers/<?php echo $data['selfie'] ?>">
 			    </div>
 		  	</div>
 		  	<div class="text-center mt-3"><input type="submit" class="btn btn-success" name="submit" value="submit"></div>
@@ -52,3 +57,23 @@
 
 	</div>
 </div>
+
+<script>
+	function readURL(input,tag_id) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(tag_id)
+                    .attr('src', e.target.result)
+                    .width(100)
+                    // .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<?php 
+	include_once '../layouts/footer.php';
+?>

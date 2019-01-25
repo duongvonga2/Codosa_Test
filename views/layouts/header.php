@@ -17,15 +17,26 @@
     <link rel="stylesheet" type="text/css" href="/Codosa_Test/public/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+    <!-- <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script> -->
 
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Codosa Holding</a>
-          <ul class="navbar-nav mr-auto"></ul>
+          <a class="navbar-brand" href="/Codosa_Test/index.php">Codosa Holding</a>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/Codosa_Test/views/users/user_info.php">Infomation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Codosa_Test/views/users/user_links.php">Up Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Codosa_Test/views/users/list_youtube_links.php">List link</a>
+              </li>
+          </ul>
           <ul class="nav justify-content-end">
             <li class="nav-item">
                 <span class="navbar-brand">Hi <?php echo $_SESSION['userData']['last_name'] . ' ' . $_SESSION['userData']['first_name'] ?></span>

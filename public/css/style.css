@@ -37,6 +37,11 @@ a{
 .align-start{
 	text-align: start !important;
 }
+.video_show{
+	width: 100%;
+	/*max-width: 400px;*/
+	height: 300px;
+}
 label{
 	cursor: pointer;
 }
