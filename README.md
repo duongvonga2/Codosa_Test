@@ -46,3 +46,7 @@ Duong Vong
 <img src="public/images/admin_list_videos.png">
 5. Admin video detail:
 <img src="public/images/admin_video_detail.png">
+## Video:
+<video width="320" height="240" controls>
+  <source src="public/videos/demo.mp4" type="video/mp4">
+</video>
