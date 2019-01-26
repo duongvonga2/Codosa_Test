@@ -46,4 +46,3 @@ Duong Vong
 <img src="public/images/admin_list_videos.png">
 5. Admin video detail:
 <img src="public/images/admin_video_detail.png">
-
