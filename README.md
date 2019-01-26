@@ -47,6 +47,4 @@ Duong Vong
 5. Admin video detail:
 <img src="public/images/admin_video_detail.png">
 ## Video:
-<video width="320" height="240" controls>
-  <source src="public/videos/demo.mp4" type="video/mp4">
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o-257cUwqmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

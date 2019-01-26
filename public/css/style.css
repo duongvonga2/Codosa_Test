@@ -1,15 +1,26 @@
 div	{
 	display: block;
 }
-.nav-item{
-	display: block;
-}
+
 img	{
 	vertical-align: middle;
 	border-style: none;
 }
 a{
 	text-decoration-line: none !important;
+}
+label{
+	cursor: pointer;
+}
+td img{
+	width: 100%;
+}
+a:hover{
+	cursor: pointer;
+}
+
+.nav-item{
+	display: block;
 }
 .action-part{
 	padding: 1rem;
@@ -21,12 +32,6 @@ a{
 	padding-top: 2rem;
 	font-size: 32px;
 	text-align: center;
-}
-#upload-img{
-	/*opacity: 0;*/
-	display: none;
-	/*position: absolute;
-	z-index: -1;*/
 }
 .non-display{
 	display: none;
@@ -42,22 +47,13 @@ a{
 }
 .video_show{
 	width: 100%;
-	/*max-width: 400px;*/
 	height: 300px;
 }
 .center-items{
 	display: flex; 
 	align-items: center;
 }
-label{
-	cursor: pointer;
-}
-td img{
-	width: 100%;
-}
-a:hover{
-	cursor: pointer;
-}
+
 @media screen and ( max-width: 892px){
 	.show-info{
 		display: none;
