@@ -25,7 +25,7 @@ Duong Vong
 <br>
 <img src="public/images/user_upload_video_error.png">
 <br>
-<img src="public/images/user_upload_video_complete.png">
+<img src="public/images/user_upload_video_completeform.png">
 4. User list videos:
 <img src="public/images/user_list_videos.png">
 
@@ -39,7 +39,7 @@ Duong Vong
 1. Admin home: 
 <img src="public/images/admin_index.png">
 2. Admin list Users:
-<img src="public/images/admin_list_user.png">
+<img src="public/images/admin_list_users.png">
 3. Admin user detail:
 <img src="public/images/admin_user_detail.png">
 4. Admin list videos :
