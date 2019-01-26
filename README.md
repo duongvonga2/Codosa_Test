@@ -16,3 +16,4 @@ Duong Vong
 3. At User upload video page, user can upload youtube link, which he want and descript it.
 4. At User list video page, user can see all the video which he has uploaded, and know which is waiting, accepted to public or ban.
 <img src="public/images/user_index.png">
+<div class="text-center">index page</div>
