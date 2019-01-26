@@ -1,10 +1,11 @@
 <?php
-    require_once '../config.php';
+    require_once '../../config.php';
+    
     $redirectURL = "http://localhost/Codosa_Test/controllers/fb-callback.php";
-    $permission = ['email'];
+    $permission = ['email']; //optional permission
     $loginURL = $helper->getLoginUrl($redirectURL, $permission); // get url to login facebook
 
-    if(isset($_SESSION['accessToken'])){
+    if(isset($_SESSION['accessToken'])){ //if the session was setted up, redirect to index.php
         header('Location: /Codosa_Test/index.php');
         exit();
     }

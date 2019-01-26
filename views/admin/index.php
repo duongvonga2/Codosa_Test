@@ -11,7 +11,7 @@
                     </div>
                     
                 </a>
-                <p>List users</p>
+                <p>LIST USERS</p>
             </div>
             <div class="col-md-6 mt-5 p-5 text-center">
                 <a class="action-part  btn-outline-primary" href="/Codosa_Test/views/admin/list_videos.php">

@@ -5,7 +5,7 @@
 	
 
 	try{
-		$accessToken = $helper->getAccessToken();
+		$accessToken = $helper->getAccessToken(); // get access token
 	}
 	catch (\Facebook\Exceptions\FacebookResponseException $e){
 		echo 'Response Exception: '. $e->getMessage();
@@ -20,12 +20,16 @@
 		exit();
 	}
 
-	$oAuth2Client = $fb->getOAuth2Client();
-	if($accessToken->isLongLived()){
+	$oAuth2Client = $fb->getOAuth2Client(); //get Oauth to manager access token
+	
+	if($accessToken->isLongLived()){ // Exchanges a short-lived access token for a long-lived 
 		$accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
 	}
+
 	$response = $fb->get('/me?fields=id, first_name, last_name, email, picture.type(large)',$accessToken);  // get data with url
 	$userData = $response->getGraphNode()->asArray(); // get data of user as an array
+	
+	//setup session
 	$_SESSION['userData'] = $userData;
 	$_SESSION['accessToken'] = $accessToken;
 
@@ -37,9 +41,11 @@
 	$check=0;
 	
 	$check = isAppear('users', 'facebook_id = ' . $_SESSION['userData']['id']); //check users is appear or not;
+	
 	if(!$check){
 		
 		$query="INSERT INTO users (`facebook_id`, `first_name`, `last_name`, `email`, `avatar`) VALUES (" . $_SESSION['userData']['id'] . ",'" . $_SESSION['userData']['first_name'] . "','" . $_SESSION['userData']['last_name'] . "','" . $_SESSION['userData']['email'] . "','" . $_SESSION['userData']['picture']['url'] . "')";
+		
 		dbUpdateData($query);
 	}
 

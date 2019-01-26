@@ -1,8 +1,5 @@
 <?php 
-	// require_once '../config.php';
-	// require_once '../models/dbModel.php';
-	
-	
+		
 	// check data is appear in DB or not, if yes return true, else return false
 	function isAppear($table_name, $condition){
 		$db = new Database;
@@ -25,21 +22,24 @@
 		}
 		return false;
 	}
-	//check an image had existed in folder yet?
+
+	//check an image had existed in folder yet? if right return true, else return false
 	function isFileExist($target_file){
 		if(file_exists($target_file)){
 			return true;
 		}
 		else return false;
 	}
-	// check size of image uploaded
+
+	// check size of image uploaded, if the size greater than max_size return true, else return false
 	function isTooLarge($size_file){
 		if($size_file>MAX_FILE_SIZE){
 			return true;
 		}
 		else return false;
 	}
-	//check type of image
+
+	//check type of image, if the type is one in the followed type return true, else return false
 	function isRightType($type_file){
 
 		if(in_array($type_file, ARRAY_IMAGE_TYPE)){
@@ -48,7 +48,6 @@
 		else return false;
 	}
 
-
 	//get rows from database with condition
 	function dbGetRowsWithCondition($tb_name, $condition){
 		$db = new Database();
@@ -56,6 +55,7 @@
 		$db->disconnectDB();
 		return $result;
 	}
+
 	//get all rows from table in database
 	function dbGetAllRows($tb_name){
 		$db = new Database();

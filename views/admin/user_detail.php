@@ -5,7 +5,7 @@
     require_once '../layouts/admin_header.php';
 
     if(isset($_GET['id'])){
-    	$user = dbGetRowsWithCondition('users','id='.$_GET['id'])->fetch_assoc();
+    	$user = dbGetRowsWithCondition('users','id='.$_GET['id'])->fetch_assoc(); //get rows in table users with id condition
     
     // $list_users = dbGetAllRows('users');
 ?>
@@ -44,47 +44,51 @@
 						<img src="/Codosa_Test/controllers/<?php echo $user['selfie'] ?>">
 					</td>	
 					<td style="vertical-align: middle;">
+						
 						<?php 
-							if($user['status']=='waiting'){
+						// show the active status, waiting is blue(class primary), accept is green(class success), ban is red(class danger)
+							if($user['status']=='Waiting'){ 
 						?>
 							<div>
 								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=waiting&id=<?php echo $_GET['id'] ?>" class="mb-2">
-									<button class="btn btn-primary btn-block">waiting</button>
+									<button class="btn btn-primary btn-block">Waiting</button>
 								</a></p>
 								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=accept&id=<?php echo $_GET['id'] ?>" class="mb-2">
-									<button class="btn btn-secondary btn-block ">accept</button>
+									<button class="btn btn-secondary btn-block ">Accept</button>
 								</a></p>
 								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=ban&id=<?php echo $_GET['id'] ?>">
-									<button class="btn btn-secondary btn-block">ban</button>
+									<button class="btn btn-secondary btn-block">Ban</button>
 								</a></p>
 							</div>
+						
 						<?php
-						}
-						else if($user['status']=='accept'){?>
-							<div>
-								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=waiting&id=<?php echo $_GET['id'] ?>" class="mb-2">
-									<button class="btn btn-secondary btn-block">waiting</button>
-								</a></p>
-								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=accept&id=<?php echo $_GET['id'] ?>" class="mb-2">
-									<button class="btn btn-success btn-block ">accept</button>
-								</a></p>
-								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=ban&id=<?php echo $_GET['id'] ?>">
-									<button class="btn btn-secondary btn-block">ban</button>
-								</a></p>
-							</div>
-						<?php
-						}
-						else {
+							}
+							else if($user['status']=='Accept'){
 						?>
 							<div>
 								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=waiting&id=<?php echo $_GET['id'] ?>" class="mb-2">
-									<button class="btn btn-secondary btn-block">waiting</button>
+									<button class="btn btn-secondary btn-block">Waiting</button>
 								</a></p>
 								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=accept&id=<?php echo $_GET['id'] ?>" class="mb-2">
-									<button class="btn btn-secondary btn-block ">accept</button>
+									<button class="btn btn-success btn-block ">Accept</button>
 								</a></p>
 								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=ban&id=<?php echo $_GET['id'] ?>">
-									<button class="btn btn-danger btn-block">ban</button>
+									<button class="btn btn-secondary btn-block">Ban</button>
+								</a></p>
+							</div>
+						<?php
+							}
+							else {
+						?>
+							<div>
+								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=waiting&id=<?php echo $_GET['id'] ?>" class="mb-2">
+									<button class="btn btn-secondary btn-block">Waiting</button>
+								</a></p>
+								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=accept&id=<?php echo $_GET['id'] ?>" class="mb-2">
+									<button class="btn btn-secondary btn-block ">Accept</button>
+								</a></p>
+								<p><a href="/Codosa_Test/controllers/adminAcceptImageController.php?action=ban&id=<?php echo $_GET['id'] ?>">
+									<button class="btn btn-danger btn-block">Ban</button>
 								</a></p>
 							</div>
 						<?php

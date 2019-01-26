@@ -1,14 +1,9 @@
 <?php
     require_once '../../config.php';
-    // $redirectURL = "http://localhost/Codosa_Test/controllers/fb-callback.php";
-    // $permission = ['email'];
-    // $loginURL = $helper->getLoginUrl($redirectURL, $permission); // get url to login facebook
-
-    // if(isset($_SESSION['accessToken'])){
-    //     header('Location: /Codosa_Test/index.php');
-    //     exit();
-    // }
-
+    if(isset($_SESSION['user_name'])){ //if the session was setted up, redirect to index.php
+        header('Location: /Codosa_Test/views/admin/index.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,11 +43,7 @@
                 	</div>
                 	<div class="form-group mt-3">
                 		 <input type="submit" value="Login" name="login" class="btn btn-primary" >
-             		</div>
-                    
-                    
-                   
-                    
+             		</div>                                                                           
                 </form>
             </div>
             
@@ -64,6 +55,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script>
+    	
     	(function() {
 		  'use strict';
 		  window.addEventListener('load', function() {
@@ -84,35 +76,24 @@
 
 		$(document).ready(function () {
 			$("#login").submit(function(e) {
-
 				e.preventDefault(); // avoid to execute the actual submit of the form.
 			    var form = $(this);
-			    console.log(form.serialize());
-
 			    $.ajax({
-			           type: "POST",
-			           url: '/Codosa_Test/controllers/adminLoginController.php',
-			           data: form.serialize(), // serializes the form's elements.
-			           success: function(res){
-			               // document.getElementById('warning').innerHTML = res; // show response from the php script.
-			               if(res==0){
-			               	document.getElementById('warning').innerHTML = 'user_name or password is incorrect';
-			               	// alert('not success');
-			               }
-			               else {
-			               	// alert('success');
-			               	window.location.replace("index.php");
-
-			               }
-			               // alert(res);
-			           },
-			           error: function(err){
-			           	// document.getElementById('warning').innerHTML = err;
-			           	alert(err);
-			           }
-			         });
-
-			    
+		           type: "POST",
+		           url: '/Codosa_Test/controllers/adminLoginController.php',
+		           data: form.serialize(), // serializes the form's elements.
+		           success: function(res){
+		               if(res==0){ // if login fail, show the warning, else redirect to index
+		               	document.getElementById('warning').innerHTML = 'user_name or password is incorrect';
+		               }
+		               else {
+		               	window.location.replace("index.php");
+		               }			               
+		           },
+		           error: function(err){			    
+		           	alert(err);
+		           }
+		        });			    
 			});
 		});
     </script>

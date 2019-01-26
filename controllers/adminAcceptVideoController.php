@@ -6,18 +6,18 @@
 	if(isset($_GET['action'])){
 		$status = '';
 		if($_GET['action'] == 'waiting'){
-			$status='waiting';
+			$status='Waiting';
 		}
 		else if($_GET['action'] == 'accept'){
-			$status = 'accept';
+			$status = 'Accept';
 		}
-		else $status='ban';
+		else $status='Ban';
 
 		$query="UPDATE 	videos SET status='$status' WHERE id=".$_GET['id'];
-		$check=dbUpdateData($query);
+		$check=dbUpdateData($query); //update status of user's video to database;
 		// if($check==1) echo 1;
 		// else echo 0;
-		header('Location: /Codosa_Test/views/admin/list_videos.php');
+		header('Location: /Codosa_Test/views/admin/list_videos.php'); //redirect to list videos page
 	}
 
 ?>

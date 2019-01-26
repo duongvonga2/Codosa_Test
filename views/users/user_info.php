@@ -3,9 +3,8 @@
 	include_once '../../models/dbModel.php';
 	include_once '../../controllers/controller.php';
 	include_once '../layouts/header.php';
-	
+	//get rows from users table with facebook_id condition
 	$user=dbGetRowsWithCondition('users', 'facebook_id='.$_SESSION['userData']['id'] )->fetch_assoc();
-	// $data=$result->fetch_assoc();
 ?>
 
 <div class="container-fluid">
@@ -53,7 +52,6 @@
 			    	<input type="file" onchange="readURL(this,'#front');" class="non-display" id="front-id-card"  name="front-id-card">
 			    </div>
 			    <div class="col-sm-12">
-			    	<!-- <img  src="#" alt="your image" /> -->
 			    	<img class="full-width"  id="front" src="../../controllers/<?php echo $user['front_id_card'] ?>">
 			    </div>
 			    
@@ -64,7 +62,6 @@
 			    	<input type="file" onchange="readURL(this,'#backside');" class="non-display" id="backsite-id-card" name="backsite-id-card">
 				</div>
 				<div class="col-sm-12">
-					<!-- <img  src="#" alt="your image" /> -->
 			    	<img class="full-width" id="backside" src="../../controllers/<?php echo $user['backside_id_card'] ?>">
 			    </div>
 		  	</div>
@@ -86,6 +83,7 @@
 </div>
 
 <script>
+	//show the image when upload to page
 	function readURL(input,tag_id) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -93,8 +91,7 @@
             reader.onload = function (e) {
                 $(tag_id)
                     .attr('src', e.target.result)
-                    .width(100)
-                    // .height(200);
+                    // .width(100)
             };
 
             reader.readAsDataURL(input.files[0]);

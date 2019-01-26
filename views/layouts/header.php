@@ -1,8 +1,8 @@
 <?php 
 	session_start();
 
-    if(!isset($_SESSION['accessToken'])){
-        header('Location: /Codosa_Test/views/login.php');
+    if(!isset($_SESSION['accessToken'])){ //if the session is not setup or destroy, redirect to login page
+        header('Location: /Codosa_Test/views/users/login.php');
         exit();
     }
     
@@ -17,9 +17,6 @@
     <link rel="stylesheet" type="text/css" href="/Codosa_Test/public/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <!-- <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script> -->
-
 </head>
 <body>
 
@@ -39,7 +36,7 @@
           </ul>
           <ul class="nav justify-content-end">
             <li class="nav-item">
-                <span class="navbar-brand">Hi <?php echo $_SESSION['userData']['last_name'] . ' ' . $_SESSION['userData']['first_name'] ?></span>
+                <span class="navbar-brand">Hi <?php echo $_SESSION['userData']['last_name']?></span>
             </li>
             <li class="nav-item ">
                 <a class="mr-2" href="">

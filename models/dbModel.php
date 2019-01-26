@@ -1,6 +1,4 @@
 <?php 
-	// require_once '../config.php';
-	// echo DB_USER;
 
 	class Database{
 		private $_connetion;
@@ -14,9 +12,9 @@
 			if(mysqli_connect_errno($this->_connection)){
 				die('Connect to database fail' . mysqli_connect_error());
 			}
-			// else echo 'connect to database success';
 		}	
 
+		//get all rows in a table
 		function getAllRows($table_name){
 			$query="SELECT * FROM $table_name";
 			$result = mysqli_query($this->_connection,$query);
@@ -24,11 +22,12 @@
 				die('get data from $table_name faile ' . mysqli_error($this->_connection));
 			}
 			else {
-				// echo 'select success';
 				return $result;
 			}
 		}
 
+		// update data to a table base on the query string, insert and update use the same function.
+		// if success return 1, else throw exception
 		function updateData( $query){
 			$this->_connection->query($query);
 			if($this->_connection->error){
@@ -40,8 +39,10 @@
 			        // echo nl2br($e->getTraceAsString());
 			    }
 			}
-			else return 1;		}
+			else return 1;		
+		}
 
+		//get all rows in table with the condition
 		function getRowsWithCondition($table_name,$condition){
 			$query = "SELECT * FROM $table_name WHERE $condition";
 			// echo "\n $query";
@@ -53,6 +54,7 @@
 			return $result;
 		}
 
+		//disconnect to database
 		function disconnectDB(){
 			$this->_connection->close();
 		}

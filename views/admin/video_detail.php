@@ -5,17 +5,24 @@
     require_once '../layouts/admin_header.php';
 
     if(isset($_GET['id'])){
-    	$video = dbGetRowsWithCondition('videos','id='.$_GET['id'])->fetch_assoc();
-    	$user = dbGetRowsWithCondition('users', 'facebook_id='.$video['facebook_id'])->fetch_assoc();
-    	$title=dbGetRowsWithCondition('titles','id=' . $video['title_id'])->fetch_assoc();
-		$subject = dbGetRowsWithCondition('subjects','id='.$video['subject_id'])->fetch_assoc();
+    	// get data from videos table with id condition
+    	$video = dbGetRowsWithCondition('videos','id='.$_GET['id'])->fetch_assoc(); 
+
+    	// get data from users table with id condition
+    	$user = dbGetRowsWithCondition('users', 'facebook_id='.$video['facebook_id'])->fetch_assoc(); 
+
+    	// get data from titles table with id condition
+    	$title=dbGetRowsWithCondition('titles','id=' . $video['title_id'])->fetch_assoc(); 
+
+    	// get data from subjects table with id condition
+		$subject = dbGetRowsWithCondition('subjects','id='.$video['subject_id'])->fetch_assoc(); 
 ?>
 	<div class="container-fluid">
 		<div class=" row col-md-6 offset-md-3 border border-primary px-2 py-2 mt-5">
 			<div class="col-sm-3 text-center">
 				<img width="150" src="<?php echo $user['avatar']?>">
 			</div>
-			<div class="col-sm-9" style="display: flex; align-items: center;">
+			<div class="col-sm-9 center-items">
 				<div>
 					<p><i class="fas fa-user"></i> <?php echo $user['last_name'] . ' ' . $user['first_name']?></p>
 					<p><i class="fas fa-envelope"></i> <?php echo $user['email']?></p>
@@ -39,7 +46,8 @@
 				</div>
 				<div class="row">
 					<?php 
-						if($video['status'] == 'waiting') {
+					// show the active status, waiting is blue(class primary), accept is green(class success), ban is red(class danger)
+						if($video['status'] == 'Waiting') {
 					?>
 							<div class="col-sm-4">
 								<a href="/Codosa_Test/controllers/adminAcceptVideoController.php?action=waiting&id=<?php echo $_GET['id'] ?>"><button class="btn btn-primary btn-block">Waiting</button></a>
@@ -51,7 +59,7 @@
 								<a href="/Codosa_Test/controllers/adminAcceptVideoController.php?action=ban&id=<?php echo $_GET['id'] ?>"><button class="btn btn-secondary btn-block">Ban</button></a>
 							</div>
 					<?php }
-						else if($video['status'] == 'accept'){ 
+						else if($video['status'] == 'Accept'){ 
 					?>
 							<div class="col-sm-4">
 								<a href="/Codosa_Test/controllers/adminAcceptVideoController.php?action=waiting&id=<?php echo $_GET['id'] ?>"><button class="btn btn-secondary btn-block">Waiting</button></a>
