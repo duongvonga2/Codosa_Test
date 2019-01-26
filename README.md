@@ -46,5 +46,6 @@ Duong Vong
 <img src="public/images/admin_list_videos.png">
 5. Admin video detail:
 <img src="public/images/admin_video_detail.png">
-### Video:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/o-257cUwqmQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+### Video demo:
+ - I can't embed youtube video to this file, so i hope you will click to this links to know more detail. Thank you!
+ - https://www.youtube.com/watch?v=o-257cUwqmQ&feature=youtu.be
