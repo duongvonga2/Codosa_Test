@@ -15,8 +15,7 @@
 
 		$query="UPDATE 	videos SET status='$status' WHERE id=".$_GET['id'];
 		$check=dbUpdateData($query); //update status of user's video to database;
-		// if($check==1) echo 1;
-		// else echo 0;
+
 		header('Location: /Codosa_Test/views/admin/list_videos.php'); //redirect to list videos page
 	}
 

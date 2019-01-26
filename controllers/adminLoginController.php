@@ -15,7 +15,6 @@ if(isset($_POST['user_name'])){
 		echo 0;
 	}
 	else if($pass == $user['password']) {	//if password is right respone 1 to client
-		// header('Location: http://stackoverflow.com');
 		$_SESSION['user_name'] = $user_name; //setup session
 		echo 1; 
 	}

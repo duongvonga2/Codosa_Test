@@ -45,7 +45,6 @@
 		//get all rows in table with the condition
 		function getRowsWithCondition($table_name,$condition){
 			$query = "SELECT * FROM $table_name WHERE $condition";
-			// echo "\n $query";
 			$result = mysqli_query($this->_connection, $query);
 			if($this->_connection->error){
 				die( 'get data from $table_name where $condition faile' . mysqli_error($this->_connection));
@@ -60,11 +59,5 @@
 		}
 		
 	}
-
-
-
-	// $db = new Database;
-	// $db->getAllRows('users');
-	// $db->connectDB();
 ?>
 

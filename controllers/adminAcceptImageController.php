@@ -17,8 +17,7 @@
 
 		$query="UPDATE 	users SET status='$status' WHERE id=".$_GET['id'];
 		$check=dbUpdateData($query); // update status of user's image to database
-		// if($check==1) echo 1;
-		// else echo 0;
+
 		header('Location: /Codosa_Test/views/admin/list_users.php'); //redirect to list users page
 
 	}
