@@ -34,10 +34,10 @@
 				<img src="/Codosa_Test/controllers/<?php echo $user['front_id_card'] ?>">
 			</td>
 			<td>
-				<img src="/Codosa_Test/controllers/<?php echo $user['backside_id_card'] ?>">
+				<img  src="/Codosa_Test/controllers/<?php echo $user['backside_id_card'] ?>">
 			</td>
 			<td>
-				<img src="/Codosa_Test/controllers/<?php echo $user['selfie'] ?>">
+				<img  src="/Codosa_Test/controllers/<?php echo $user['selfie'] ?>">
 			</td>	
 			
 		</tr>

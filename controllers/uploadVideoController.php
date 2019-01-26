@@ -17,7 +17,7 @@
 		$youtube_token = substr($youtube_link, $start); // get the string which is id of the video
 
 
-		$query="INSERT INTO videos (facebook_id, title_id, subject_id, youtube_link, description, status) VALUES ('$facebook_id','$title_id','$subject_id','$youtube_token','$description','waiting')";
+		$query="INSERT INTO videos (facebook_id, title_id, subject_id, youtube_link, description, status) VALUES ('$facebook_id','$title_id','$subject_id','$youtube_token','$description','Waiting')";
 		$result = dbUpdateData($query);
 		// echo $result;
 		header('Location: /Codosa_Test/views/users/list_videos.php');

@@ -19,13 +19,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/Codosa_Test/public/css/style.css">
 </head>
 <body>
     <div class="container">
 
         <div class="row  mt-5">
 
-             <div class="col-md-4 offset-md-4 justify-content-center" align="center">
+             <div class="col-md-4 offset-md-4 justify-content-center login-form " align="center">
                  <h1>Codosa Holding</h1>
                 <form>
                     <input type="text" name="mail" class="form-control" placeholder="email" ><br>

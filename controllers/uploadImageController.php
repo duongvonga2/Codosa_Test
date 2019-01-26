@@ -36,7 +36,7 @@ if(isset($_POST["submit"])) {
 
 
         		//insert url of images to database
-        		$query = "UPDATE users SET front_id_card = '$target_front_id_card', backside_id_card = '$target_backsite_id_card', selfie = '$target_selfie_img' WHERE facebook_id = " . $_SESSION['userData']['id'];
+        		$query = "UPDATE users SET front_id_card = '$target_front_id_card', backside_id_card = '$target_backsite_id_card', selfie = '$target_selfie_img', status='Waiting' WHERE facebook_id = " . $_SESSION['userData']['id'];
         		dbUpdateData($query);
 
         		// echo $query;

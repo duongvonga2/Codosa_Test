@@ -19,7 +19,7 @@
 				//get data from subjects table with _id condition
 				$subject = dbGetRowsWithCondition('subjects','id=' . $video['subject_id'])->fetch_assoc();
 		?>
-				<a class="row col-md-6 border border-primary offset-md-3 mt-3 px-2 py-2 btn-outline-primary" href="/Codosa_Test/views/admin/video_detail.php?id=<?php echo $video['id'] ?>">
+				<a class="row col-md-6 border border-primary offset-md-3 mt-3 mb-3 px-2 py-2 btn-outline-primary" >
 					<div class="col-sm-8">
 						<iframe width="400" height="225"  class="video_show" src="https://www.youtube.com/embed/<?php echo $video['youtube_link'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					</div>

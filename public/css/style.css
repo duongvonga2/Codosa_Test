@@ -55,3 +55,11 @@ label{
 td img{
 	width: 100%;
 }
+a:hover{
+	cursor: pointer;
+}
+@media screen and ( max-width: 892px){
+	.show-info{
+		display: none;
+	}
+}
