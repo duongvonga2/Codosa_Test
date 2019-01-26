@@ -37,11 +37,21 @@ a{
 .align-start{
 	text-align: start !important;
 }
+.full-width{
+	width: 100% !important;
+}
 .video_show{
 	width: 100%;
 	/*max-width: 400px;*/
 	height: 300px;
 }
+.center-items{
+	display: flex; 
+	align-items: center;
+}
 label{
 	cursor: pointer;
+}
+td img{
+	width: 100%;
 }

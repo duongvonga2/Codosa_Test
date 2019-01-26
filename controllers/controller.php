@@ -57,7 +57,7 @@
 		return $result;
 	}
 	//get all rows from table in database
-	function getAllRows($tb_name){
+	function dbGetAllRows($tb_name){
 		$db = new Database();
 		$result = $db->getAllRows($tb_name);
 		$db->disconnectDB();
@@ -65,7 +65,7 @@
 	}
 
 	// update database base on query, if success return 1, else return 0
-	function updateData($query){
+	function dbUpdateData($query){
 		$db = new Database();
 		$result=$db->updateData($query);
 		$db->disconnectDB();

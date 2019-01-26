@@ -4,58 +4,85 @@
 	include_once '../../controllers/controller.php';
 	include_once '../layouts/header.php';
 	
-	$result=dbGetRowsWithCondition('users', 'facebook_id='.$_SESSION['userData']['id'] );
-	$data=$result->fetch_assoc();
+	$user=dbGetRowsWithCondition('users', 'facebook_id='.$_SESSION['userData']['id'] )->fetch_assoc();
+	// $data=$result->fetch_assoc();
 ?>
 
 <div class="container-fluid">
-	<div class="col-md-6 offset-md-3 mt-5">
-		<div class="text-center">
-			<img class="rounded-circle" src="<?php echo $_SESSION['userData']['picture']['url'] ?>">
+	<div class="row col-md-6 offset-md-3 border border-primary px-2 py-2 mt-5">
+		<div class="col-sm-3 text-center">
+			<img width="150" src="<?php echo $user['avatar']?>">
 		</div>
-		<div class="basic-info">
-			<p><i class="fas fa-user"></i> <?php echo $_SESSION['userData']['last_name'] . ' ' . $_SESSION['userData']['first_name']?></p>
-			<p><i class="fas fa-envelope"></i> <?php echo $_SESSION['userData']['email'] ?></p>
-
+		<div class="col-sm-9" style="display: flex; align-items: center;">
+			<div>
+				<p><i class="fas fa-user"></i> <?php echo $user['last_name'] . ' ' . $user['first_name']?></p>
+				<p><i class="fas fa-envelope"></i> <?php echo $user['email']?></p>
+				<p><i class="fas fa-sync-alt"></i> <?php echo $user['status'] ?></p>
+			</div>
 			
 		</div>
-		<form action="/Codosa_Test/controllers/uploadImageController.php" method="POST" enctype="multipart/form-data"> 
-		  	<div class=" row form-group">
-		  		<div class="col-md-6 align-end">
-		  			<label class="btn btn-primary" for="front-id-card">upload front Id card</label>
+	</div>
+	<table class="table">
+		<tr>
+			<th>Front id card</th>
+			<th>Backside id card</th>
+			<th>Selfie</th>
+
+		</tr>
+
+		<tr>
+			<td>
+				<img src="/Codosa_Test/controllers/<?php echo $user['front_id_card'] ?>">
+			</td>
+			<td>
+				<img src="/Codosa_Test/controllers/<?php echo $user['backside_id_card'] ?>">
+			</td>
+			<td>
+				<img src="/Codosa_Test/controllers/<?php echo $user['selfie'] ?>">
+			</td>	
+			
+		</tr>
+	</table>
+	<hr>
+	<form action="/Codosa_Test/controllers/uploadImageController.php" method="POST" enctype="multipart/form-data" class="text-center mt-5 mb-5 	">
+		<h1>UPLOAD YOUR IMAGE</h1> 
+		<div class="row">
+		  	<div class=" col-md-4 form-group">
+		  		<div class="col-sm-12">
+		  			<label class="btn btn-primary btn-block" for="front-id-card">upload front Id card</label>
 			    	<input type="file" onchange="readURL(this,'#front');" class="non-display" id="front-id-card"  name="front-id-card">
 			    </div>
-			    <div class="col-md-6 align-start">
+			    <div class="col-sm-12">
 			    	<!-- <img  src="#" alt="your image" /> -->
-			    	<img width="100" id="front" src="../../controllers/<?php echo $data['front_id_card'] ?>">
+			    	<img class="full-width"  id="front" src="../../controllers/<?php echo $user['front_id_card'] ?>">
 			    </div>
 			    
 		  	</div>
-		  	<div class="row form-group">
-			    <div class="col-md-6 align-end">
-			    	<label class="btn btn-primary" for="backsite-id-card">upload backsite Id card</label>
+		  	<div class="col-md-4 form-group">
+			    <div class="col-sm-12">
+			    	<label class="btn btn-primary btn-block" for="backsite-id-card">upload backsite Id card</label>
 			    	<input type="file" onchange="readURL(this,'#backside');" class="non-display" id="backsite-id-card" name="backsite-id-card">
 				</div>
-				<div class="col-md-6 align-start">
+				<div class="col-sm-12">
 					<!-- <img  src="#" alt="your image" /> -->
-			    	<img width="100" id="backside" src="../../controllers/<?php echo $data['backside_id_card'] ?>">
+			    	<img class="full-width" id="backside" src="../../controllers/<?php echo $user['backside_id_card'] ?>">
 			    </div>
 		  	</div>
-		  	<div class="row form-group">
-		  		<div class="col-md-6 align-end">
-			    	<label class="btn btn-primary" for="selfie-img">upload selfie image</label>
+		  	<div class="col-md-4 form-group">
+		  		<div class="col-sm-12">
+			    	<label class="btn btn-primary btn-block" for="selfie-img">upload selfie image</label>
 			    	<input type="file" onchange="readURL(this,'#selfie');" class="non-display" id="selfie-img" name="selfie-img">
 				</div>
-				<div class="col-md-6 align-start">
-			    	<img id="selfie" width="100" src="../../controllers/<?php echo $data['selfie'] ?>">
+				<div class="col-sm-12">
+			    	<img class="full-width" id="selfie" src="../../controllers/<?php echo $user['selfie'] ?>">
 			    </div>
 		  	</div>
-		  	<div class="text-center mt-3"><input type="submit" class="btn btn-success" name="submit" value="submit"></div>
+		  	<div class="col-md-6 offset-md-3 text-center">
+		  		<input type="submit" class="btn btn-success" name="submit" value="submit">
+		  	</div>
 		  	
-		</form>
-
-
-	</div>
+	  	</div>
+	</form>
 </div>
 
 <script>

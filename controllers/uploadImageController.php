@@ -30,7 +30,8 @@ if(isset($_POST["submit"])) {
 
         		
         		$query = "UPDATE users SET front_id_card = '$target_front_id_card', backside_id_card = '$target_backsite_id_card', selfie = '$target_selfie_img' WHERE facebook_id = " . $_SESSION['userData']['id'];
-        		updateData($query);
+        		dbUpdateData($query);
+
         		// echo $query;
         	}
         }
@@ -39,7 +40,7 @@ if(isset($_POST["submit"])) {
     else {
         echo " is not an image." ;
     }
-    // header('Location: ../views/user_info.php');
+    header('Location: ../views/users/user_info.php');
 }
 
 

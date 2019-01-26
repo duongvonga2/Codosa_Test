@@ -4,11 +4,11 @@
 	include_once '../../controllers/controller.php';
 	include_once '../layouts/header.php';
 
-	$list_titles = getAllRows('titles');
-	$list_subjects = getAllRows('subjects');
+	$list_titles = dbGetAllRows('titles');
+	$list_subjects = dbGetAllRows('subjects');
 ?>
 	<div class=" mt-5">
-		<form action="/Codosa_Test/controllers/uploadLinkController.php" method="POST" class="needs-validation col-md-12 row" novalidate>
+		<form action="/Codosa_Test/controllers/uploadVideoController.php" method="POST" class="needs-validation col-md-12 row" novalidate>
 			<div class="col-md-6">
 				<div class="form-group row">
 					<label class="col-sm-3 col-form-label" for="youtube_link" >Link youtube</label>
@@ -74,7 +74,7 @@
 			<div class="col-md-6 offset-md-3">
 			<div class="form-group row justify-content-center">
 			    
-			      <button type="submit" class="btn btn-primary">Submit</button>
+			      <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 		
 			</div>
 		</div>

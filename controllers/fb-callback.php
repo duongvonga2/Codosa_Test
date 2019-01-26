@@ -40,7 +40,7 @@
 	if(!$check){
 		
 		$query="INSERT INTO users (`facebook_id`, `first_name`, `last_name`, `email`, `avatar`) VALUES (" . $_SESSION['userData']['id'] . ",'" . $_SESSION['userData']['first_name'] . "','" . $_SESSION['userData']['last_name'] . "','" . $_SESSION['userData']['email'] . "','" . $_SESSION['userData']['picture']['url'] . "')";
-		updateData($query);
+		dbUpdateData($query);
 	}
 
 	header('Location: /Codosa_Test/index.php');

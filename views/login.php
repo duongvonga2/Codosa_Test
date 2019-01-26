@@ -23,13 +23,15 @@
     <div class="container">
 
         <div class="row  mt-5">
-             <div class="col-md-6 offset-md-3 justify-content-center" align="center">
+
+             <div class="col-md-4 offset-md-4 justify-content-center" align="center">
+                 <h1>Codosa Holding</h1>
                 <form>
-                <input type="text" name="mail" class="form-control" placeholder="email" ><br>
-                <input type="password" name="password" placeholder="password" class="form-control" ><br>
-                <input type="submit" value="log in" class="btn btn-primary" >
-                <input type="button" onclick="window.location= '<?php echo $loginURL; ?>'" value="log in with Facebook" class="btn btn-primary" >
-            </form>
+                    <input type="text" name="mail" class="form-control" placeholder="email" ><br>
+                    <input type="password" name="password" placeholder="password" class="form-control" ><br>
+                    <input type="submit" value="log in" class="btn btn-primary mb-3" >
+                    <input type="button" onclick="window.location= '<?php echo $loginURL; ?>'" value="log in with Facebook" class="btn btn-primary mb-3" >
+                </form>
             </div>
             
         </div>

@@ -4,7 +4,7 @@
 	include_once '../../controllers/controller.php';
 	include_once '../layouts/header.php';
 	
-	$list_uploads=dbGetRowsWithCondition('user_uploads', 'facebook_id='.$_SESSION['userData']['id'] );
+	$list_videos=dbGetRowsWithCondition('videos', 'facebook_id='.$_SESSION['userData']['id'] );
 	// $data=$result->fetch_assoc();
 ?>
 	<div class="container-fluid">
@@ -21,19 +21,19 @@
 			</thead>
 			<tbody>
 				<?php 
-					while($upload = $list_uploads->fetch_assoc()){ 
-						$title = dbGetRowsWithCondition('titles','id=' . $upload['title_id'])->fetch_assoc();
-						$subject = dbGetRowsWithCondition('subjects','id=' . $upload['subject_id'])->fetch_assoc();
+					while($video = $list_videos->fetch_assoc()){ 
+						$title = dbGetRowsWithCondition('titles','id=' . $video['title_id'])->fetch_assoc();
+						$subject = dbGetRowsWithCondition('subjects','id=' . $video['subject_id'])->fetch_assoc();
 				?>
 				<tr>
-					<td><?php echo $upload['id'] ?></td>
+					<td><?php echo $video['id'] ?></td>
 				    <td>
-				    	<iframe class="video_show" src="https://www.youtube.com/embed/<?php echo $upload['youtube_link'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				    	<iframe class="video_show" src="https://www.youtube.com/embed/<?php echo $video['youtube_link'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				    </td>
 				    <td><?php echo $title['title_name'] ?></td>
 				    <td><?php echo $subject['subject_name'] ?></td>
-				    <td><?php echo $upload['description'] ?></td>
-				    <td><?php echo $upload['status'] ?></td>
+				    <td><?php echo $video['description'] ?></td>
+				    <td><?php echo $video['status'] ?></td>
 				</tr>
 				<?php } ?>
 			</tbody>

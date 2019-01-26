@@ -1,8 +1,8 @@
 <?php 
 	session_start();
 
-    if(!isset($_SESSION['accessToken'])){
-        header('Location: /Codosa_Test/views/login.php');
+    if(!isset($_SESSION['user_name'])){
+        header('Location: /Codosa_Test/views/admin/login.php');
         exit();
     }
     
@@ -25,30 +25,30 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/Codosa_Test/index.php">Codosa Holding</a>
+          <a class="navbar-brand" href="/Codosa_Test/views/admin/index.php">Codosa Holding</a>
           <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/Codosa_Test/views/users/user_info.php">Your Infomation</a>
+                <a class="nav-link" href="/Codosa_Test/views/admin/list_users.php">List Users</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Codosa_Test/views/users/upload_video.php">Upload Video</a>
+                <a class="nav-link" href="/Codosa_Test/views/admin/list_videos.php">List Videos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/Codosa_Test/views/users/list_videos.php">Your Videos</a>
-              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="/Codosa_Test/views/users/list_youtube_links.php">List link</a>
+              </li> -->
           </ul>
           <ul class="nav justify-content-end">
             <li class="nav-item">
-                <span class="navbar-brand">Hi <?php echo $_SESSION['userData']['last_name'] . ' ' . $_SESSION['userData']['first_name'] ?></span>
+                <span class="navbar-brand">Hi Admin</span>
             </li>
             <li class="nav-item ">
                 <a class="mr-2" href="">
-                    <img width="40" height="40" class="rounded-circle" src="<?php echo $_SESSION['userData']['picture']['url']; ?>">
+                    
                 </a>
                 
             </li>
             <li class="nav-item">
-                <a href="/Codosa_Test/controllers/logoutController.php"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button></a>
+                <a href="/Codosa_Test/controllers/adminLogoutController.php"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log out</button></a>
 
             </li>
           </ul>

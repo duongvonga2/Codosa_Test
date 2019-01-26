@@ -5,7 +5,7 @@
 
 
 
-	if(isset($_POST['youtube_link'])){
+	if(isset($_POST['submit'])){
 		
 		$facebook_id = $_SESSION['userData']['id'];
 		$youtube_link = $_POST['youtube_link'];
@@ -17,10 +17,10 @@
 		$youtube_token = substr($youtube_link, $start);
 
 
-		$query="INSERT INTO user_uploads (facebook_id, title_id, subject_id, youtube_link, description, status) VALUES ('$facebook_id','$title_id','$subject_id','$youtube_token','$description','waiting')";
-		$result = updateData($query);
+		$query="INSERT INTO videos (facebook_id, title_id, subject_id, youtube_link, description, status) VALUES ('$facebook_id','$title_id','$subject_id','$youtube_token','$description','waiting')";
+		$result = dbUpdateData($query);
 		echo $result;
-		header('Location: /Codosa_Test/views/users/list_youtube_links.php');
+		header('Location: /Codosa_Test/views/users/list_videos.php');
 		// echo $query;
 	}
 
